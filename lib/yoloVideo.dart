@@ -1,3 +1,4 @@
+import 'package:deca_app_yolo/detectedItems.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vision/flutter_vision.dart';
 import 'package:camera/camera.dart';
@@ -37,6 +38,7 @@ class _YoloVideoState extends State<YoloVideo> {
           isLoaded = true;
           isDetecting = false;
           yoloResults = [];
+          startDetection();
         });
       });
     });
@@ -148,55 +150,15 @@ class _YoloVideoState extends State<YoloVideo> {
 
     return Scaffold(
       body: Stack(
-        // fit: StackFit.expand,
         children: [
-          // AspectRatio(
-          //   aspectRatio: controller.value.aspectRatio,
-          //   child: CameraPreview(
-          //     controller,
-          //   ),
-          // ),
           Transform.scale (
             scale: scale,
             child: Center (child: CameraPreview(controller))
           ),
-      
-          ...displayBoxesAroundRecognizedObjects(size),
-          Positioned(
-            bottom: 75,
-            width: MediaQuery.of(context).size.width,
-            child: Container(
-              height: 80,
-              width: 80,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                    width: 5, color: Colors.white, style: BorderStyle.solid),
-              ),
-              child: isDetecting
-                  ? IconButton(
-                      onPressed: () async {
-                        stopDetection();
-                      },
-                      icon: const Icon(
-                        Icons.stop,
-                        color: Colors.red,
-                      ),
-                      iconSize: 50,
-                    )
-                  : IconButton(
-                      onPressed: () async {
-                        await startDetection();
-                      },
-                      icon: const Icon(
-                        Icons.play_arrow,
-                        color: Colors.white,
-                      ),
-                      iconSize: 50,
-                    ),
-            ),
-          ),
 
+          ...displayBoxesAroundRecognizedObjects(size),
+
+          DetectedItems(data:yoloResults.map((result)=> int.parse(result['tag'])).toList())
         ],
       ),
     );
