@@ -20,6 +20,8 @@ class _YoloVideoState extends State<YoloVideo> {
   CameraImage? cameraImage;
   bool isLoaded = false;
   bool isDetecting = false;
+  bool isDrawingBoundingBoxes = true;
+
   double confidenceThreshold = 0.5;
 
   @override
@@ -134,6 +136,42 @@ class _YoloVideoState extends State<YoloVideo> {
     }).toList();
   }
 
+  Widget toggleBoundingBoxesButton(Size size){
+    return Positioned(
+        bottom: size.height-120,
+        left: size.width-80,
+        child: Container(
+          height: 80,
+          width: 80,
+          child: isDrawingBoundingBoxes
+              ? IconButton(
+                  onPressed: () async {
+                    setState(() {
+                      isDrawingBoundingBoxes = false;
+                    });
+                  },
+                  icon: const Icon(
+                    Icons.stop,
+                    color: Colors.red,
+                  ),
+                  iconSize: 40,
+                )
+              : IconButton(
+                  onPressed: () async {
+                    setState(() {
+                      isDrawingBoundingBoxes = true;
+                    });
+                  },
+                  icon: const Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
+                  ),
+                  iconSize: 40,
+                ),
+        ),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     if (!isLoaded) {
@@ -156,7 +194,17 @@ class _YoloVideoState extends State<YoloVideo> {
             child: Center (child: CameraPreview(controller))
           ),
 
-          ...displayBoxesAroundRecognizedObjects(size),
+          toggleBoundingBoxesButton(size),
+
+          isDrawingBoundingBoxes ?
+            SizedBox(
+              height: size.height,
+              width: size.width, 
+              child: Stack(
+                children: displayBoxesAroundRecognizedObjects(size),
+              ),
+            )
+            : Container(),
 
           DetectedItems(data:yoloResults.map((result)=> int.parse(result['tag'])).toList())
         ],
