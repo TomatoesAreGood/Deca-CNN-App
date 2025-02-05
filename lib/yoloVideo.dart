@@ -120,7 +120,7 @@ class _YoloVideoState extends State<YoloVideo> {
             border: Border.all(color: Colors.pink, width: 2.0),
           ),
           child: Text(
-            "${result['tag']} ${(result['box'][4] * 100)}",
+            "${result['tag']} ${(result['box'][4] * 100).toStringAsFixed(2)}",
             style: TextStyle(
               background: Paint()..color = colorPick,
               color: const Color.fromARGB(255, 115, 0, 255),
