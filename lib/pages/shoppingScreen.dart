@@ -136,6 +136,7 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                     buildFilterCatagory(2, "Tape"),
                     buildFilterCatagory(3, "Highlighters"),
                     buildFilterCatagory(4, "Pencils"),
+                    buildFilterCatagory(5, "Markers"),
                   ],
                 ),
               ),

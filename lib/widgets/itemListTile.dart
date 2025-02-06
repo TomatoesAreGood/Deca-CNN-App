@@ -1,4 +1,5 @@
-import 'package:deca_app_yolo/productDescriptions.dart';
+import 'package:deca_app_yolo/pages/productPage.dart';
+import 'package:deca_app_yolo/product.dart';
 import 'package:flutter/material.dart';
 
 class ItemListTile extends StatefulWidget {
@@ -24,10 +25,13 @@ class _ItemListTileState extends State<ItemListTile> {
           color: Colors.grey[50],
           child: Material(
             child: ListTile(
+              onTap: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context) => ProductPage(productId: widget.productID)));
+              },
               minTileHeight: 80,
               leading: Image.asset('assets/detected_images/${widget.productID}.png'),
               title: Text(
-                ProductDescriptions.productIDs[widget.productID] ?? "No desc for id ${widget.productID}", 
+                Product.getProduct(widget.productID).name, 
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontWeight: FontWeight.bold

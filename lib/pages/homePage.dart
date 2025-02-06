@@ -2,6 +2,7 @@ import 'package:deca_app_yolo/pages/cameraStream.dart';
 import 'package:deca_app_yolo/pages/checkoutScreen.dart';
 import 'package:deca_app_yolo/pages/favoritedScreen.dart';
 import 'package:deca_app_yolo/pages/shoppingScreen.dart';
+import 'package:deca_app_yolo/product.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,6 +20,12 @@ class _HomePageState extends State<HomePage> {
     FavoritedScreen(),
     CheckoutScreen()
   ];
+
+  @override
+  void initState() {
+    Product.retrieveProductInfo();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
