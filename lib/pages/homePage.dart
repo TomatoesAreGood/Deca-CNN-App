@@ -1,3 +1,4 @@
+import 'package:deca_app_yolo/pages/cameraStream.dart';
 import 'package:deca_app_yolo/pages/checkoutScreen.dart';
 import 'package:deca_app_yolo/pages/favoritedScreen.dart';
 import 'package:deca_app_yolo/pages/shoppingScreen.dart';
@@ -34,7 +35,11 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color.fromARGB(255, 131, 37, 30),
         actions: [
           IconButton(
-            onPressed: (){},
+            onPressed: (){
+              Navigator.pushReplacement(context, 
+                MaterialPageRoute(builder: (context) => CameraStream())
+              );
+            },
             icon: Icon(
               Icons.camera_alt_outlined,
               color: Colors.white,

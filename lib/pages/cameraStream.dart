@@ -1,3 +1,4 @@
+import 'package:deca_app_yolo/pages/homePage.dart';
 import 'package:deca_app_yolo/widgets/detectedItems.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vision/flutter_vision.dart';
@@ -141,11 +142,9 @@ class _CameraStreamState extends State<CameraStream> {
 
   Widget toggleBoundingBoxesButton(Size size){
     return Positioned(
-        bottom: size.height-120,
-        left: size.width-80,
+        top: 47,
+        right:15,
         child: Container(
-          height: 80,
-          width: 80,
           child: isDrawingBoundingBoxes
               ? IconButton(
                   onPressed: () async {
@@ -157,7 +156,7 @@ class _CameraStreamState extends State<CameraStream> {
                     Icons.stop,
                     color: Colors.red,
                   ),
-                  iconSize: 40,
+                  iconSize: 30,
                 )
               : IconButton(
                   onPressed: () async {
@@ -169,7 +168,7 @@ class _CameraStreamState extends State<CameraStream> {
                     Icons.play_arrow,
                     color: Colors.white,
                   ),
-                  iconSize: 40,
+                  iconSize: 30,
                 ),
         ),
       );
@@ -197,8 +196,6 @@ class _CameraStreamState extends State<CameraStream> {
             child: Center (child: CameraPreview(controller))
           ),
 
-          toggleBoundingBoxesButton(size),
-
           isDrawingBoundingBoxes ?
             SizedBox(
               height: size.height,
@@ -208,6 +205,23 @@ class _CameraStreamState extends State<CameraStream> {
               ),
             )
             : Container(),
+          
+           Positioned(
+            left: 15,
+            top: 50,
+            child: IconButton(
+              onPressed: (){
+                Future.wait([stopDetection(), controller.stopImageStream()]).then((value) =>
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage())
+                ));
+              },
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ))
+          ),
+
+          toggleBoundingBoxesButton(size),
 
           DetectedItems(data:yoloResults.map((result)=> int.parse(result['tag'])).toList())
         ],
