@@ -29,12 +29,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+      ),
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         title: const Text(
           "Staples CORE",
           style: TextStyle(
             color: Colors.white,
-            fontWeight: FontWeight.bold
+            fontWeight: FontWeight.w900
           ),
         ),
         centerTitle: true,
