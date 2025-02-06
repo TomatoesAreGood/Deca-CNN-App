@@ -7,7 +7,7 @@ class Product {
     Product(
       id: 1,
       name: "BIC Ultra Round Stic Grip Ballpoint Pen",
-      desc: "A reliable ballpoint pen with a comfortable grip for smooth, everyday writing.",
+      desc: "A reliable ballpoint pen featuring an ultra-comfortable grip that reduces hand fatigue, allowing for smooth and precise writing. Its lightweight design makes it easy to carry around, making it ideal for everyday use at school or work.",
       price: 3.29,
       website: "https://www.staples.ca/products/382242-en-bic-ultra-round-stic-grip-ballpoint-stick-pens-12mm-blue-12-pack?listId=search",
       category: 1,
@@ -16,7 +16,7 @@ class Product {
     Product(
       id: 2,
       name: "BIC Round Stic Ballpoint Pen M",
-      desc: "A classic medium-point ballpoint pen offering consistent ink flow and a lightweight design.",
+      desc: "A classic medium-point ballpoint pen offering smooth ink flow and a comfortable design for prolonged writing sessions. Its lightweight build makes it convenient for everyday writing tasks, from taking notes in class to creating detailed lists at work.",
       price: 11.49,
       website: "https://www.staples.ca/products/442901-en-bic-round-stic-ballpoint-pens-medium-tip-10mm-black-60-pack",
       category: 1,
@@ -25,7 +25,7 @@ class Product {
     Product(
       id: 3,
       name: "BIC Cristal Stic Ballpoint Pen M",
-      desc: "A transparent barrel pen with a medium point for crisp and reliable writing.",
+      desc: "This pen features a transparent barrel, allowing you to monitor ink levels while writing. The medium point provides crisp, clear lines, making it ideal for everyday writing. It is both reliable and affordable, perfect for school or office environments.",
       price: 2.79,
       website: "https://www.staples.ca/products/10252-en-bic-cristal-ballpoint-stick-pens-10mm-blue-12-pack?listId=search",
       category: 1,
@@ -34,7 +34,7 @@ class Product {
     Product(
       id: 4,
       name: "BIC Mechanical Pencil 0.7mm #2",
-      desc: "A sturdy mechanical pencil with #2 lead and a 0.7mm tip for precise writing and sketching.",
+      desc: "A sturdy and dependable mechanical pencil equipped with #2 lead, ideal for standardized tests or detailed sketching. The 0.7mm tip allows for precise lines, and its durable design ensures that it can withstand frequent use without breaking easily.",
       price: 9.49,
       website: "https://www.staples.ca/products/434931-en-bic-extra-comfort-2-hb-mechanical-pencils-07mm-12-pack",
       category: 4,
@@ -43,7 +43,7 @@ class Product {
     Product(
       id: 5,
       name: "Paper Mate Intro Highlighter",
-      desc: "A bright, smooth highlighter designed to emphasize important text without smudging.",
+      desc: "This vibrant highlighter is designed for smooth application and consistent color. It easily emphasizes key points in texts without smudging, making it perfect for students or professionals who need to highlight important information in books or documents efficiently.",
       price: 2.65,
       website: "https://www.staples.ca/products/35472-en-sharpie-chisel-tip-pocket-style-highlighters-assorted-colours-4-pack?listId=search",
       category: 3,
@@ -52,7 +52,7 @@ class Product {
     Product(
       id: 6,
       name: "Staples Hype! Pen-Style Highlighter",
-      desc: "A vibrant pen-style highlighter with a chisel tip for versatile highlighting and underlining.",
+      desc: "A vibrant pen-style highlighter featuring a chisel tip for versatile marking, including both highlighting and underlining. Its long-lasting ink ensures vibrant results, while the slim, pen-like design makes it easy to carry around in pockets or pencil cases.",
       price: 4.69,
       website: "https://www.staples.ca/products/412775-en-staples-hype-chisel-tip-pen-style-highlighters-yellow-6-pack",
       category: 3,
@@ -61,7 +61,7 @@ class Product {
     Product(
       id: 7,
       name: "Black Sharpie Fine Tip Permanent Marker",
-      desc: "A versatile permanent marker with a fine tip for bold and detailed marks on various surfaces.",
+      desc: "This permanent marker offers a fine tip that allows for detailed, precise markings on various surfaces. Its bold black ink is water-resistant and quick-drying, making it a reliable tool for creating permanent labels, art projects, or professional presentations.",
       price: 14.99,
       website: "https://www.staples.ca/products/11520-en-sharpie-permanent-markers-fine-tip-black-12-pack",
       category: 5,
@@ -70,7 +70,7 @@ class Product {
     Product(
       id: 8,
       name: "Pentel Rolly C3 BallPoint Pen",
-      desc: "A sleek ballpoint pen with smooth ink flow and a comfortable grip for everyday use.",
+      desc: "This sleek and stylish ballpoint pen provides a smooth and effortless writing experience. Its ergonomic grip ensures comfort during long writing sessions, while its high-quality ink delivers consistent and clear lines, making it a reliable everyday writing tool.",
       price: 6.89,
       website: "https://www.staples.ca/products/2675867-en-bic-4-colour-3-1-pen-and-mechanical-pencil",
       category: 1,
@@ -79,7 +79,7 @@ class Product {
     Product(
       id: 9,
       name: "Casemate Hb #2 Yellow Wood Pencil",
-      desc: "A traditional yellow wood pencil with strong HB #2 lead for clear, consistent writing.",
+      desc: "A traditional yellow wood pencil with strong HB #2 lead, perfect for clear, consistent writing or drawing. Its durable wood casing ensures longevity, while the smooth lead provides excellent coverage, making it an essential tool for school or office tasks.",
       price: 8.99,
       website: "https://www.staples.ca/products/603283-en-staples-wood-cased-pencils-2-hb-72-pack ",
       category: 4,
@@ -88,7 +88,7 @@ class Product {
     Product(
       id: 10,
       name: "Paper Mate Ballpoint Pen M",
-      desc: "A dependable medium-point ballpoint pen with smooth ink and a comfortable grip.",
+      desc: "This dependable medium-point ballpoint pen offers a smooth ink flow and comfortable grip, making it suitable for everyday use. Whether you're writing notes at school or drafting documents at work, it ensures neat, consistent, and reliable writing results.",
       price: 2.69,
       website: "https://www.staples.ca/products/10501-en-paper-mate-ballpoint-stick-pens-blue-medium-12-pack?listId=search",
       category: 1,
