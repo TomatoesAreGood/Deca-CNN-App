@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    Product.retrieveProductInfo();
     super.initState();
   }
 

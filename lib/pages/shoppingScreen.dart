@@ -1,3 +1,5 @@
+import 'package:deca_app_yolo/product.dart';
+import 'package:deca_app_yolo/widgets/productCard.dart';
 import 'package:flutter/material.dart';
 
 class ShoppingScreen extends StatefulWidget {
@@ -91,8 +93,73 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         buildTitle("Trending"),
+        Container( 
+          height: 12,
+        ),
+        GridView.builder(
+          padding: const EdgeInsets.only(left:6.5, right: 6.5),
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: (100/140),
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+            
+          ),
+          itemCount: 4,
+          itemBuilder:(context, index) {
+            return ProductCard(product: Product.allProducts[index]);
+          },
+        ),
+        Container(
+          height: 12,
+        ),
         buildTitle("Best Selling"),
+        Container(
+          height: 12,
+        ),
+        GridView.count(
+          padding: const EdgeInsets.only(left:6.5, right: 6.5),
+          crossAxisCount: 2,
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          childAspectRatio: (100/140),
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 12,
+          children: [
+            ProductCard(product: Product.allProducts[4]),
+            ProductCard(product: Product.allProducts[5]),
+            ProductCard(product: Product.allProducts[6]),
+            ProductCard(product: Product.allProducts[7]),
+          ]
+        ),
+        Container(
+          height: 12,
+        ),
+  
         buildTitle("On Sale"),
+        Container(
+          height: 12,
+        ),
+         GridView.count(
+          padding: const EdgeInsets.only(left:6.5, right: 6.5),
+          crossAxisCount: 2,
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          childAspectRatio: (100/140),
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 12,
+          children: [
+            ProductCard(product: Product.allProducts[8]),
+            ProductCard(product: Product.allProducts[9]),
+            ProductCard(product: Product.allProducts[3]),
+            ProductCard(product: Product.allProducts[2]),
+          ]
+        ),
       ]
     );
   }
@@ -110,46 +177,45 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          height: 15,
-        ),
-        buildSearchBar(),
-        Container(
-          height: 15,
-        ),
-        buildTitle("Catagories"),
-        
-        SizedBox(
-          height: 40,
-          child: Row(
-            children: [
-              Expanded(
-                child: ListView(
-                  padding: EdgeInsets.only(left: 8),
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    buildFilterCatagory(0, "All"),
-                    buildFilterCatagory(1, "Pens"),
-                    buildFilterCatagory(2, "Tape"),
-                    buildFilterCatagory(3, "Highlighters"),
-                    buildFilterCatagory(4, "Pencils"),
-                    buildFilterCatagory(5, "Markers"),
-                  ],
-                ),
-              ),
-            ],
+    return ListView(
+        children: [
+          Container(
+            height: 15,
           ),
-        ),
-        Container(
-          height: 12,
-        ),
-
-        (selectedFilter == 0) ? buildAll() : buildFiltered()  
- 
-      ],
+          buildSearchBar(),
+          Container(
+            height: 15,
+          ),
+          buildTitle("Catagories"),
+          
+          SizedBox(
+            height: 40,
+            child: Row(
+              children: [
+                Expanded(
+                  child: ListView(
+                    padding: EdgeInsets.only(left: 8),
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      buildFilterCatagory(0, "All"),
+                      buildFilterCatagory(1, "Pens"),
+                      buildFilterCatagory(2, "Tape"),
+                      buildFilterCatagory(3, "Highlighters"),
+                      buildFilterCatagory(4, "Pencils"),
+                      buildFilterCatagory(5, "Markers"),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 12,
+          ),
+      
+          (selectedFilter == 0) ? buildAll() : buildFiltered()  
+       
+        ]
     );
   }
 }
