@@ -1,3 +1,4 @@
+import 'package:deca_app_yolo/itemListTile.dart';
 import 'package:deca_app_yolo/productDescriptions.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,6 @@ class DetectedItems extends StatefulWidget {
 class _DetectedItemsState extends State<DetectedItems> {
   @override
   Widget build(BuildContext context) {
-    print(widget.data);
      return Align(
         alignment: Alignment.bottomCenter,
         child: DraggableScrollableSheet(
@@ -32,10 +32,43 @@ class _DetectedItemsState extends State<DetectedItems> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(Icons.keyboard_arrow_up, size: 45, color: Colors.orange),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Detected Items",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20
+                          ),
+                        ),
+                        Container(
+                          width: 10,
+                        ),
+                        Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            shape: BoxShape.circle
+                          ),
+                          child: Center(
+                            child: Text(
+                              "${widget.data.length}",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 17.0,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            )
+                          ),
+                        )
+                      ],
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
-                        children: widget.data.map((item)=> ListTile(title: Text(ProductDescriptions.productIDs[item] ?? "product ID not added: $item"))).toList()
+                        children: widget.data.map((item)=> ItemListTile(productID: item)).toList()
                       ),
                     )
                   ],
