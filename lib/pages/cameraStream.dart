@@ -1,17 +1,17 @@
-import 'package:deca_app_yolo/detectedItems.dart';
+import 'package:deca_app_yolo/widgets/detectedItems.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vision/flutter_vision.dart';
 import 'package:camera/camera.dart';
 
 
-class YoloVideo extends StatefulWidget {
-  const YoloVideo({super.key});
+class CameraStream extends StatefulWidget {
+  const CameraStream({super.key});
 
   @override
-  State<YoloVideo> createState() => _YoloVideoState();
+  State<CameraStream> createState() => _CameraStreamState();
 }
 
-class _YoloVideoState extends State<YoloVideo> {
+class _CameraStreamState extends State<CameraStream> {
   late CameraController controller;
   late FlutterVision vision;
   late List<Map<String, dynamic>> yoloResults;
@@ -45,12 +45,14 @@ class _YoloVideoState extends State<YoloVideo> {
       });
     });
   }
+  
   @override
   void dispose() async {
     super.dispose();
     controller.dispose();
     await vision.closeYoloModel();
   }
+
   Future<void> loadYoloModel() async {
     await vision.loadYoloModel(
         labels: 'assets/labels.txt',
@@ -93,6 +95,7 @@ class _YoloVideoState extends State<YoloVideo> {
       }
     });
   }
+
   Future<void> stopDetection() async {
     setState(() {
       isDetecting = false;

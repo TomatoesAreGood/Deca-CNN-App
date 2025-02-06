@@ -1,5 +1,6 @@
+import 'package:deca_app_yolo/pages/homePage.dart';
 import 'package:flutter/material.dart';
-import 'yoloVideo.dart';
+import 'pages/cameraStream.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: YoloVideo(),
+      home: HomePage(),
     );
   }
 }
