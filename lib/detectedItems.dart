@@ -1,5 +1,4 @@
 import 'package:deca_app_yolo/itemListTile.dart';
-import 'package:deca_app_yolo/productDescriptions.dart';
 import 'package:flutter/material.dart';
 
 class DetectedItems extends StatefulWidget {
