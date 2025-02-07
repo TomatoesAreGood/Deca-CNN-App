@@ -157,7 +157,7 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
             ProductCard(product: Product.allProducts[8]),
             ProductCard(product: Product.allProducts[9]),
             ProductCard(product: Product.allProducts[3]),
-            ProductCard(product: Product.allProducts[2]),
+            ProductCard(product: Product.allProducts[1]),
           ]
         ),
       ]
