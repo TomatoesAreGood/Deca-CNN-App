@@ -1,5 +1,5 @@
 # Deca-CNN-App
-A custom-trained convolutional neural network (Yolov8) that recognizes and identifies assorted office supplies. Developed for DECA competition, model was trained used [a Google Colab](https://colab.research.google.com/github/EdjeElectronics/Train-and-Deploy-YOLO-Models/blob/main/Train_YOLO_Models.ipynb) and UI was designed using Flutter and Dart.
+A custom-trained convolutional neural network (Yolov8) that recognizes and identifies assorted office supplies. Developed for DECA competition, model was trained with [a Google Colab](https://colab.research.google.com/github/EdjeElectronics/Train-and-Deploy-YOLO-Models/blob/main/Train_YOLO_Models.ipynb) and UI was designed using Flutter and Dart.
 
 ## Demo
 <p align="center">
