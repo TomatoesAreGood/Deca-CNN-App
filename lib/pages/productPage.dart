@@ -61,9 +61,9 @@ class _ProductPageState extends State<ProductPage> {
           ]
         ),
       ),
-      body: Column(
+      body: ListView(
         children: [
-          SizedBox(height: 20,),
+          SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -78,8 +78,7 @@ class _ProductPageState extends State<ProductPage> {
               ),
             ],
           ),
-          SizedBox(height: 20,),
-
+          SizedBox(height: 20),
           Container( 
             padding: EdgeInsets.all(20),
             width: double.infinity,
@@ -104,7 +103,6 @@ class _ProductPageState extends State<ProductPage> {
                           fontSize: 20,
                           fontWeight: FontWeight.w900
                         ),
-                        // overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     Text(
@@ -116,12 +114,10 @@ class _ProductPageState extends State<ProductPage> {
                     )
                   ],
                 ),
-                SizedBox(
-                  height: 14,
-                ),
+                SizedBox(height: 14),
                 Text(
                   Product.getProduct(widget.productId).desc,
-                  textAlign:  TextAlign.justify,
+                  textAlign:  TextAlign.left,
                   style: TextStyle(
                     fontSize: 14,
                   ),

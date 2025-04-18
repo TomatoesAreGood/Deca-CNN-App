@@ -2,7 +2,6 @@ import 'package:deca_app_yolo/pages/cameraStream.dart';
 import 'package:deca_app_yolo/pages/checkoutScreen.dart';
 import 'package:deca_app_yolo/pages/favoritedScreen.dart';
 import 'package:deca_app_yolo/pages/shoppingScreen.dart';
-import 'package:deca_app_yolo/product.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
