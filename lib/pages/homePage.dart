@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentIndex = 0;
+  int currentIndex = 1;
 
   List<Widget> screens = [
     ShoppingScreen(),
@@ -111,49 +111,81 @@ class _HomePageState extends State<HomePage> {
       );
   }
 
+   BottomNavigationBarItem _buildNavItem(String label, IconData icon, int index) {
+    if(index == 2){
+      return BottomNavigationBarItem(
+        icon: Column(
+          children: [
+            Icon(icon, color: Colors.red, size: 28,),
+            Text(
+              label,
+              style: TextStyle(
+                color: Colors.red,
+                fontWeight:FontWeight.w900,
+                fontSize: 17
+              ),
+            ),
+          ],
+        ),
+        label: '',
+      );
+    }
+    return BottomNavigationBarItem(
+      icon: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: currentIndex == index ? Colors.red : Colors.grey),
+          Text(
+            label,
+            style: TextStyle(
+              color: currentIndex == index ? Colors.red : Colors.grey,
+              fontWeight:FontWeight.normal,
+            ),
+          ),
+          if (currentIndex == index)
+            Container(
+              margin: const EdgeInsets.only(top: 4),
+              height: 3,
+              width: 20,
+              color: Colors.red,
+            )
+          else
+            const SizedBox(height: 7), // to keep spacing consistent
+        ],
+      ),
+      label: '',
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: (currentIndex != 1)?Container():Drawer(backgroundColor: Colors.white,),
       appBar: buildAppBar(),
       body: screens[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        showUnselectedLabels: true,
-        selectedLabelStyle: TextStyle(),
-        unselectedLabelStyle: (currentIndex != 1) ? TextStyle(fontWeight: FontWeight.bold) : TextStyle(overflow: TextOverflow.visible),
+      bottomNavigationBar:  BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: [
+          _buildNavItem('Home', Icons.home, 0),
+          _buildNavItem('Shop', Icons.shopping_bag, 1),
+          _buildNavItem('Camera', Icons.camera_alt, 2),
+          _buildNavItem('Favorited', Icons.favorite, 3),
+          _buildNavItem('Account', Icons.person, 4),
+        ],
         currentIndex: currentIndex,
         onTap: (value){
           setState(() {
             currentIndex = value;
+            if(value == 2){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>CameraStream()));
+            }
           });
         },
-        selectedItemColor: Colors.red,
-        unselectedItemColor: Colors.grey,
-        items: [
-          BottomNavigationBarItem(
-            label: "Home",
-            icon: Icon(Icons.home),
-          ),
-          BottomNavigationBarItem(
-            label: "Shop",
-            icon: Icon(Icons.shopping_bag_outlined),
-          ),
-          BottomNavigationBarItem(
-            label: "Camera",
-            icon:Icon(Icons.camera_alt, color: Colors.red,)
-        
-          ),
-          BottomNavigationBarItem(
-            label: "Favorited",
-            
-            icon: Icon(Icons.favorite),
-          ),
-          BottomNavigationBarItem(
-            label: "Cart",
-            icon: Icon(Icons.shopping_cart),
-          ),
-        ]
-      ),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        backgroundColor: Colors.white,
+        elevation: 8,
+      )
     );
   }
 }
