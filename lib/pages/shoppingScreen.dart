@@ -53,41 +53,6 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
     );
   }
 
-  Widget buildSearchBar(){
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SearchAnchor(
-          builder: (BuildContext context, SearchController controller) {
-        return SearchBar(
-          hintText: "Search",
-          controller: controller,
-          padding: const WidgetStatePropertyAll<EdgeInsets>(
-              EdgeInsets.symmetric(horizontal: 16.0)),
-          onTap: () {
-            controller.openView();
-          },
-          onChanged: (_) {
-            controller.openView();
-          },
-          leading: const Icon(Icons.search),
-        );
-      }, suggestionsBuilder:
-              (BuildContext context, SearchController controller) {
-        return List<ListTile>.generate(5, (int index) {
-          final String item = 'item $index';
-          return ListTile(
-            title: Text(item),
-            onTap: () {
-              setState(() {
-                controller.closeView(item);
-              });
-            },
-          );
-        });
-      }),
-    );
-  }
-
   Column buildAll(){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -182,12 +147,7 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
           Container(
             height: 15,
           ),
-          buildSearchBar(),
-          Container(
-            height: 15,
-          ),
           buildTitle("Catagories"),
-          
           SizedBox(
             height: 40,
             child: Row(
@@ -212,9 +172,7 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
           Container(
             height: 12,
           ),
-      
           (selectedFilter == 0) ? buildAll() : buildFiltered()  
-       
         ]
     );
   }
