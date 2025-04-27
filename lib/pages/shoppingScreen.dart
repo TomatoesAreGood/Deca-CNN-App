@@ -42,7 +42,7 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
 
   Widget buildTitle(String text){
     return Padding(
-      padding: EdgeInsets.only(left:8),
+      padding: EdgeInsets.only(left:16),
       child: Text(
         text,
         style: TextStyle(
@@ -57,73 +57,90 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        buildTitle("Trending"),
-        Container( 
-          height: 12,
-        ),
-        GridView.builder(
-          padding: const EdgeInsets.only(left:6.5, right: 6.5),
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: (100/140),
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            
+        buildTitle("Curated For You"),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            height: 273,
+            child: ListView( 
+              scrollDirection: Axis.horizontal,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[0]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[1]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[2]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[3]),
+                ),
+              ],
+            ),
           ),
-          itemCount: 4,
-          itemBuilder:(context, index) {
-            return ProductCard(product: Product.allProducts[index]);
-          },
-        ),
-        Container(
-          height: 12,
         ),
         buildTitle("Best Selling"),
-        Container(
-          height: 12,
-        ),
-        GridView.count(
-          padding: const EdgeInsets.only(left:6.5, right: 6.5),
-          crossAxisCount: 2,
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          childAspectRatio: (100/140),
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-          children: [
-            ProductCard(product: Product.allProducts[4]),
-            ProductCard(product: Product.allProducts[5]),
-            ProductCard(product: Product.allProducts[6]),
-            ProductCard(product: Product.allProducts[7]),
-          ]
-        ),
-        Container(
-          height: 12,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            height: 273,
+            child: ListView( 
+              scrollDirection: Axis.horizontal,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[4]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[5]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[6]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[7]),
+                ),
+              ],
+            ),
+          ),
         ),
   
         buildTitle("On Sale"),
-        Container(
-          height: 12,
-        ),
-         GridView.count(
-          padding: const EdgeInsets.only(left:6.5, right: 6.5),
-          crossAxisCount: 2,
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          childAspectRatio: (100/140),
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-          children: [
-            ProductCard(product: Product.allProducts[8]),
-            ProductCard(product: Product.allProducts[9]),
-            ProductCard(product: Product.allProducts[3]),
-            ProductCard(product: Product.allProducts[1]),
-          ]
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            height: 273,
+            child: ListView( 
+              scrollDirection: Axis.horizontal,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[8]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[9]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[10]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProductCard(product: Product.allProducts[11]),
+                ),
+              ],
+            ),
+          ),
         ),
       ]
     );
@@ -142,38 +159,13 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-        children: [
-          Container(
-            height: 15,
-          ),
-          buildTitle("Catagories"),
-          SizedBox(
-            height: 40,
-            child: Row(
-              children: [
-                Expanded(
-                  child: ListView(
-                    padding: EdgeInsets.only(left: 8),
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      buildFilterCatagory(0, "All"),
-                      buildFilterCatagory(1, "Pens"),
-                      buildFilterCatagory(2, "Tape"),
-                      buildFilterCatagory(3, "Highlighters"),
-                      buildFilterCatagory(4, "Pencils"),
-                      buildFilterCatagory(5, "Markers"),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: 12,
-          ),
-          (selectedFilter == 0) ? buildAll() : buildFiltered()  
-        ]
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: ListView(
+          children: [
+            (selectedFilter == 0) ? buildAll() : buildFiltered()  
+          ]
+      ),
     );
   }
 }

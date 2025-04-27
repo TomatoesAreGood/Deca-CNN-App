@@ -51,7 +51,7 @@ class _ProductCardState extends State<ProductCard> {
               widget.product.name,
               style: TextStyle(
                 fontSize: 14,
-                fontWeight: FontWeight.bold
+                fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
             ),

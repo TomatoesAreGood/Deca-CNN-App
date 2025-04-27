@@ -105,7 +105,7 @@ class Product {
     ),
     Product(
       id: 12,
-      name: "Paper Mate Comfortmate Ultra Ballpoint Pens 1.0mm - Blue",
+      name: "Paper Mate Comfortmate Ultra Ballpoint Pens",
       desc: "Enjoy effortless writing with this ultra-comfortable ballpoint pen. The soft grip and precise 1.0mm tip reduce hand fatigue, making it a reliable choice for long writing sessions in class or at the office.",
       price: 14.49,
       website: "https://www.staples.ca/products/46024-en-paper-mate-comfortmate-ultra-ballpoint-pens-retractable-10mm-black-12-pack",
