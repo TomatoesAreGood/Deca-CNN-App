@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:deca_app_yolo/product.dart';
 import 'package:deca_app_yolo/widgets/productCard.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +55,39 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
     );
   }
 
+  List<Widget> buildRatings(dynamic stars, {intReview=0}){
+    String str = intReview.toString();
+    String review = str;
+
+    RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
+    String Function(Match) mathFunc = (Match match) => '${match[1]},';
+
+    List<Widget> list = [];
+    if(review == '0'){
+      review = '${Random().nextInt(20000) + 100}';
+    }
+    for (int i = 0; i < stars.floor(); i++){
+      list.add(const Icon(Icons.star, size: 14, color: Colors.amber));
+    }
+    if (stars.round() > stars.floor()){
+      list.add(const Icon(Icons.star_half, size: 14, color: Colors.amber));
+    }
+    list.add(
+      Padding(
+        padding: const EdgeInsets.only(left: 8),
+        child: Text(
+          review.replaceAllMapped(reg, mathFunc),
+          style: TextStyle(
+            decoration: TextDecoration.underline,
+            fontWeight: FontWeight.w900,
+            fontSize: 13
+          ),
+        ),
+      )
+    );
+    return list;
+  }
+
   Widget buildProductCard(int id, {discount = 0, pickup = 1, stars = 4}){
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -66,22 +101,26 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                 Container(
                   height: 150,
                   width: 150,
-                  color: Colors.grey[200],
-                  child: const Icon(Icons.image, size: 50),
+                  child: Image.asset('assets/product_images/${id}.png'),
                 ),
                 (discount != 0) ?
                   Positioned(
                     top: 4,
                     left: 4,
                     child: Container(
+                      height: 28,
+                      width: 60,
                       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                       decoration: BoxDecoration(
-                        color: Colors.purple,
-                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromRGBO(209,156,187, 1),
+                        borderRadius: BorderRadius.only(topLeft: Radius.circular(12), bottomRight: Radius.circular(12)),
                       ),
-                      child: Text(
-                        '$discount% off',
-                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          '$discount% off',
+                          style: TextStyle(color: Color.fromRGBO(98, 43, 77, 1), fontSize: 10, fontWeight: FontWeight.w900),
+                        ),
                       ),
                     ),
                   ):
@@ -89,24 +128,24 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
               ],
             ),
             const SizedBox(height: 8),
-            const Text(
-              "Hammermill Copy Plus 8.5\" x 11\" Copy...",
+            Text(
+              Product.getProduct(id).name,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 4),
             Row(
-              children: List.generate(5, (index) => const Icon(Icons.star, size: 14, color: Colors.amber)),
+              children: buildRatings(stars)       
             ),
-            const SizedBox(height: 4),
-            const Text(
-              "\$46.99",
-              style: TextStyle(fontWeight: FontWeight.w900),
+            Text(
+              '\$${Product.getProduct(id).price}',
+              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 15.5),
             ),
+            const SizedBox(height: 6),
             const Text(
-              "1-hr pickup\nin Toronto",
-              style: TextStyle(fontSize: 12, color: Colors.grey),
+              "1-hr pickup\nin Orlando",
+              style: TextStyle(fontSize: 12),
             ),
             const Spacer(),
             Align(
@@ -115,7 +154,6 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                 width: 100,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: const Text("Add"),
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24),
@@ -124,6 +162,7 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                     foregroundColor: Colors.black,
                     side: BorderSide(color: Colors.grey.shade400),
                   ),
+                  child: const Text("Add"),
                 ),
               ),
             ),
@@ -141,18 +180,29 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildTitle("Curated For You"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                buildTitle("Curated For You"),
+                Padding(
+                  padding: EdgeInsets.only(right: 16),
+                  child: Text(
+                    "See all",
+                    style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w900),
+                  ),
+                ),
+              ],
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: SizedBox(
-                height: 338,
+                height: 355,
                 child: ListView( 
                   scrollDirection: Axis.horizontal,
                   children: [
-                    buildProductCard(0, discount: 40),
-                    buildProductCard(1, discount: 26),
+                    buildProductCard(1, discount: 26, stars: 4.5),
                     buildProductCard(2, discount: 30),
-                    buildProductCard(3, discount: 18),
+                    buildProductCard(3, discount: 18, stars: 5),
                   ],
                 ),
               ),

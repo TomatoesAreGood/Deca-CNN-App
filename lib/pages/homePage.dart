@@ -160,6 +160,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       drawer: (currentIndex != 1)?Container():Drawer(backgroundColor: Colors.white,),
       appBar: buildAppBar(),
       body: screens[currentIndex],
