@@ -8,7 +8,7 @@ A custom-trained convolutional neural network (Yolov8) that recognizes and ident
 
 ## Screenshots
 <p align="middle">
+  <img src="https://github.com/user-attachments/assets/98094638-5a4b-46bd-b613-4d57b65288aa" width="30%"/>
   <img src="https://github.com/user-attachments/assets/dd3aa646-582d-4846-b4b9-d8b4014d3507" width="30%"/>
   <img src="https://github.com/user-attachments/assets/6f863240-65dc-48c1-80d3-1dc8193409e2" width="30%"/> 
-  <img src="https://github.com/user-attachments/assets/1c2e42cd-3dce-459c-91e0-cc2c47482d51" width="30%"/>
 </p>
