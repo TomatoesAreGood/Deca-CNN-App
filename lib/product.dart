@@ -165,6 +165,24 @@ class Product {
       website: "https://www.staples.ca/products/395895-en-bic-ultra-round-stic-grip-ballpoint-pens-12mm-red-12-pack",
       category: 1,
       isStaples: false
+    ),
+    Product(
+      id: 20,
+      name: "DECA Pencil - Blue",
+      desc: "A traditional yellow wood pencil with strong HB #2 lead, perfect for clear, consistent writing or drawing. Its durable wood casing ensures longevity, while the smooth lead provides excellent coverage, making it an essential tool for school or office tasks.",
+      price: 9.49,
+      website: "https://www.staples.ca/products/434931-en-bic-extra-comfort-2-hb-mechanical-pencils-07mm-12-pack",
+      category: 1,
+      isStaples: false
+    ),
+    Product(
+      id: 19,
+      name: "DECA Mechanical Pencil - White",
+      desc: " A sturdy and dependable mechanical pencil equipped with #2 lead, ideal for standardized tests or detailed sketching. The 0.7mm tip allows for precise lines, and its durable design ensures that it can withstand frequent use without breaking easily.",
+      price: 1.00,
+      website: "https://www.staples.ca/products/395895-en-bic-ultra-round-stic-grip-ballpoint-pens-12mm-red-12-pack",
+      category: 1,
+      isStaples: false
     )
   ];
 

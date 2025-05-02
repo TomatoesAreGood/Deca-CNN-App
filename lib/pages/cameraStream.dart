@@ -57,7 +57,7 @@ class _CameraStreamState extends State<CameraStream> {
   Future<void> loadYoloModel() async {
     await vision.loadYoloModel(
         labels: 'assets/labels.txt',
-        modelPath: 'assets/detect11.tflite',
+        modelPath: 'assets/detect11New.tflite',
         modelVersion: "yolov8",
         numThreads: 1,
         useGpu: true);

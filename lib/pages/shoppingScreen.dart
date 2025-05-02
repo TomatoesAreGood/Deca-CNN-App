@@ -263,6 +263,14 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                     ),
+                    Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Item ID: ${id}', style: TextStyle(fontSize: 12),),
+                        Text('Model: TR62091', style: TextStyle(fontSize: 12)),
+                      ],
+                    ),
                     const SizedBox(height: 4),
                     Row(
                       children: buildRatings(stars)       
