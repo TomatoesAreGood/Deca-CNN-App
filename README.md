@@ -1,5 +1,5 @@
 # Deca-CNN-App
-An imitation e-commerce app that employs a custom-trained convolutional neural network (Yolov8) to detect assorted office supplies. Model trained with a [a Google Colab](https://colab.research.google.com/github/EdjeElectronics/Train-and-Deploy-YOLO-Models/blob/main/Train_YOLO_Models.ipynb) and UI was designed using Flutter and Dart. Achieved 7th place in BMOR at ICDC 2025 (International DECA Competition)
+An imitation e-commerce app that employs a custom-trained convolutional neural network (Yolov8) to detect assorted office supplies. Model trained with [a Google Colab](https://colab.research.google.com/github/EdjeElectronics/Train-and-Deploy-YOLO-Models/blob/main/Train_YOLO_Models.ipynb) and UI was designed using Flutter and Dart. Achieved 7th place in BMOR at ICDC 2025 (International DECA Competition)
 
 ## Demo
 <p align="center">
